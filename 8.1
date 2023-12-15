@@ -1,0 +1,53 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
+void zapolnenie(int arr[], int a)
+{
+    for (int i = 0; i < a; i++)
+    {
+        arr[i] = rand() % 5 - 2;
+    }
+
+    for (int i = 0; i < a; i++)
+    {
+        cout << arr[i] << "\t";
+    }
+}
+
+int poisk(int arr[], int a)
+{
+    int y = 0;
+    for (int i = 0; i < a; i++)
+    {
+        if (arr[i] == 0)
+        {
+            y++;
+        }
+    }
+    return y;
+}
+
+int main()
+{
+    system("chcp 1251");
+    srand(time(NULL));
+    const int a = 10;
+    int arr1[a];
+    int arr2[a];
+    int arr3[a];
+
+    cout << "Массив 1: ";
+    zapolnenie(arr1, a);
+    cout << "\tКоличество нулей: " << poisk(arr1, a) << endl;
+
+    cout << "Массив 2: ";
+    zapolnenie(arr2, a);
+    cout << "\tКоличество нулей: " << poisk(arr2, a) << endl;
+
+    cout << "Массив 3: ";
+    zapolnenie(arr3,a);
+    cout << "\tКоличество нулей: " << poisk(arr3, a) << endl;
+}
